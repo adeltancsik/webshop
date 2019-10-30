@@ -27,12 +27,15 @@ export function productDeletedSuccess(id) {
 
 //
 export function deleteProduct(id) {
-  return function(dispatch, getState) {
-    // if (getState().products.length !== 0) return;
-    fetch(`http://localhost:4000/products/${id}`, { method: "DELETE" })
-      .then(res => res.json())
-      .then(() => {
-        dispatch(productDeletedSuccess(id));
-      });
-  };
+  const result = prompt("are you sure?", "no");
+  if (result === "yes") {
+    return function(dispatch) {
+      fetch(`http://localhost:4000/products/${id}`, { method: "DELETE" })
+        .then(res => res.json())
+        .then(() => {
+          dispatch(productDeletedSuccess(id));
+        });
+    };
+  }
+  return;
 }
