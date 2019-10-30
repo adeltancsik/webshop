@@ -5,6 +5,10 @@ export default class Wishlist extends React.Component {
         return (
             <div>
                 <h1>Wish List</h1>
+                {console.log('this.props',this.props.wishlist)}
+                <ul> {this.props.wishlist.map((product)=>{
+                    return <li key={product.id}>{product.name}</li>
+                })} </ul>
             </div>
         )
     }

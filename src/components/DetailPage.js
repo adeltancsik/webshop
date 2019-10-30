@@ -1,4 +1,5 @@
 import React from "react";
+import WishlistBtn from "./WishlistBtn";
 
 export default class DetailPage extends React.Component {
   render() {
@@ -7,7 +8,7 @@ export default class DetailPage extends React.Component {
         DetailPage
         {this.props.name}
         <button>Add to cart</button>
-        <button>Add to wishlist</button>
+        <WishlistBtn id={this.props.id} name={this.props.name}/>
       </div>
     );
   }
