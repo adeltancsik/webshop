@@ -7,12 +7,15 @@ class DetailPageContainer extends React.Component {
     const productId = this.props.products.find(product => {
       return product.id.toString() === this.props.match.params.id;
     });
-    
-    return (
-      <div>
-        <DetailPage name={productId.name} id={productId.id}/>
-      </div>
-    );
+    if (productId){
+      return (
+        <div>
+          <DetailPage name={productId.name} id={productId.id}/>
+        </div>
+      )
+    }else{
+      return <h1>Loading...</h1>
+    }
   }
 }
 const mapStateToProps = state => {

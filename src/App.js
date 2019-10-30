@@ -8,19 +8,36 @@ import ShoppingCartContainer from "./components/ShoppingCartContainer";
 import WishlistContainer from './components/WishlistContainer';
 import AdminContainer from "./components/AdminContainer";
 import DetailPageContainer from "./components/DetailPageContainer";
+import {getProducts} from './actions/productList';
+import {connect} from 'react-redux';
 
-function App() {
-  return (
-    <Provider store={store}>
-      <div className="App">
-        <Route exact path="/" component={ProductListContainer} />
-        <Route path="/shopping-cart" component={ShoppingCartContainer} />
-        <Route path="/wishlist" component={WishlistContainer} />
-        <Route path="/admin" component={AdminContainer} />
-        <Route path="/detail-page/:id" component={DetailPageContainer} />
-      </div>
-    </Provider>
-  );
+export default class App extends React.Component {
+  
+  render() {
+      return (
+        <Provider store={store}>
+          <ConnectedRoutes />
+        </Provider>
+      );
+    }
+} 
+
+class Routes extends React.Component{
+  componentDidMount() {
+    this.props.getProducts()
+  }  
+  
+  render(){
+    return (
+        <div className="App">
+          <Route exact path="/" component={ProductListContainer} />
+          <Route path="/shopping-cart" component={ShoppingCartContainer} />
+          <Route path="/wishlist" component={WishlistContainer} />
+          <Route path="/admin" component={AdminContainer} />
+          <Route path="/detail-page/:id" component={DetailPageContainer} />
+        </div>
+    );
+  }
 }
 
-export default App;
+const ConnectedRoutes = connect(()=>({}),{ getProducts })(Routes);
