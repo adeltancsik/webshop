@@ -1,17 +1,19 @@
 import React from "react";
 import ProductList from "./ProductList";
 import { connect } from "react-redux";
-import { getProducts } from "../actions/productList";
+import { getProducts, deleteProduct } from "../actions/productList";
 
 class ProductListContainer extends React.Component {
   componentDidMount() {
     this.props.getProducts();
+    // this.props.deleteProduct(1);
   }
 
   render() {
     return (
       <div>
-        <ProductList products={this.props.products}/>
+        <button onClick={() => this.props.deleteProduct(1)}>DELETE</button>
+        <ProductList products={this.props.products} />
       </div>
     );
   }
@@ -25,5 +27,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProducts }
+  { getProducts, deleteProduct }
 )(ProductListContainer);

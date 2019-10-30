@@ -17,3 +17,22 @@ export function getProducts() {
       });
   };
 }
+
+export function productDeletedSuccess(id) {
+  return {
+    type: "PRODUCT_DELETED_SUCCESS",
+    payload: id
+  };
+}
+
+//
+export function deleteProduct(id) {
+  return function(dispatch, getState) {
+    // if (getState().products.length !== 0) return;
+    fetch(`http://localhost:4000/products/${id}`, { method: "DELETE" })
+      .then(res => res.json())
+      .then(() => {
+        dispatch(productDeletedSuccess(id));
+      });
+  };
+}
