@@ -11,7 +11,8 @@ class ProductListContainer extends React.Component {
   render() {
     return (
       <div>
-        <ProductList />
+        {console.log(this.props)}
+        <ProductList products={this.props.products}/>
       </div>
     );
   }
@@ -19,7 +20,7 @@ class ProductListContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    products: state.products
+    products: state.productList
   };
 };
 

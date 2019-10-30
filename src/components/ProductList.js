@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default class ProductList extends React.Component {
-  render() {
+export default function ProductList (props) {
     return (
       <div>
         <header>
@@ -14,10 +13,17 @@ export default class ProductList extends React.Component {
         <main>
           <h2>ProductList</h2>
           <div className="productlist">
-            <ul></ul>
+            <ul>
+              {props.products.map((product)=>{
+                return (<li key={product.id}>
+                      <p>{product.name}</p>
+                      <img src={product.imageUrl} alt={product.name} width="60px"/>
+
+                </li>)
+              })}  
+            </ul>
           </div>
         </main>
       </div>
     );
   }
-}
