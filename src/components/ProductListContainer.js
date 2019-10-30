@@ -1,13 +1,29 @@
 import React from "react";
 import ProductList from "./ProductList";
+import { connect } from "react-redux";
+import { getProducts } from "../actions/productList";
 
-export default class ProductListContainer extends React.Component {
+class ProductListContainer extends React.Component {
+  componentDidMount() {
+    this.props.getProducts();
+  }
+
   render() {
     return (
       <div>
-        Hi?
         <ProductList />
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getProducts }
+)(ProductListContainer);
