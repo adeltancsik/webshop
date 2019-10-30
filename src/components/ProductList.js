@@ -9,6 +9,11 @@ export default function ProductList(props) {
         <Link to="/shopping-cart">
           <button>Cart</button>
         </Link>
+
+        <Link to="/wishlist">
+          <button>Wish List</button>
+        </Link>
+
       </header>
       <main>
         <h2>ProductList</h2>
