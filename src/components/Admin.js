@@ -5,11 +5,8 @@ export default class Admin extends React.Component {
   render() {
     return (
       <div>
-        <header>
-          <h1>Admin page</h1>
-        </header>
         <main>
-          <h2>You have now in ProductList</h2>
+          <h3>You have now in ProductList</h3>
           <div>
             <ul>
               {this.props.products.map(product => {

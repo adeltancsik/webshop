@@ -39,3 +39,38 @@ export function deleteProduct(id) {
   }
   return;
 }
+
+export function productAdded(id, categoryId, name, imageUrl, inStock, price) {
+  return {
+    type: "PRODUCT_ADDED",
+    payload: id,
+    categoryId,
+    name,
+    imageUrl,
+    inStock,
+    price
+  };
+}
+
+export function addProduct(id, categoryId, name, imageUrl, inStock, price) {
+  return function(dispatch) {
+    fetch(`http://localhost:4000/products`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        categoryId: categoryId,
+        name: name,
+        imageUrl: imageUrl,
+        inStock: inStock,
+        price: price
+      })
+    })
+      .then(res => res.json())
+      .then(() => {
+        dispatch(productAdded(id, categoryId, name, imageUrl, inStock, price));
+      });
+  };
+}
