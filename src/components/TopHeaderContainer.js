@@ -7,7 +7,7 @@ class TopHeaderContainer extends React.Component {
     return (
       <div>
         <header>
-          <NavigationBar cart={this.props.cart} />
+          <NavigationBar cart={this.props.cart} wishlist={this.props.wishlist} />
         </header>
       </div>
     );
@@ -15,7 +15,8 @@ class TopHeaderContainer extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    cart: state.shoppingcart
+    cart: state.shoppingcart,
+    wishlist: state.wishlistReducer
   };
 };
 
