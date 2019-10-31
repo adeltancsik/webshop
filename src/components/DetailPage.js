@@ -6,7 +6,11 @@ export default class DetailPage extends React.Component {
       <div>
         DetailPage
         {this.props.name}
-        <button>Add to cart</button>
+        <button
+          onClick={() => this.props.addToCart(this.props.id, this.props.name)}
+        >
+          Add to cart
+        </button>
         <button>Add to wishlist</button>
       </div>
     );
