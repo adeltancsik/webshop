@@ -1,0 +1,4 @@
+.productLine {
+  display: flex;
+  justify-content: space-around;
+}
