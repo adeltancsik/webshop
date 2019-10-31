@@ -4,7 +4,6 @@ export default class AdminAddForm extends React.Component {
   state = {};
 
   handleSubmit = event => {
-    event.preventDefault();
     console.log("this.state", this.state);
 
     this.props.addProduct(

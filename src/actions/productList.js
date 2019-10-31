@@ -37,7 +37,11 @@ export function deleteProduct(id) {
         });
     };
   }
-  return;
+  return function(dispatch) {
+    dispatch({
+      type: "DEFAULT"
+    });
+  };
 }
 
 export function productAdded(id, categoryId, name, imageUrl, inStock, price) {
@@ -68,7 +72,10 @@ export function addProduct(categoryId, name, imageUrl, inStock, price, id) {
         price: price
       })
     })
-      .then(res => res.json())
+      .then(res => {
+        console.log("res", res);
+        return res.json();
+      })
       .then(resJson => {
         console.log("resJson", resJson);
         dispatch(productAdded(id, categoryId, name, imageUrl, inStock, price));
