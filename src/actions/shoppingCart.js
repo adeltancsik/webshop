@@ -1,9 +1,10 @@
-export function addToCart(id, name) {
+export function addToCart(id, name, price) {
   return {
     type: "ADD_TO_CART",
     payload: {
       id: id,
-      name: name
+      name: name,
+      price: price
     }
   };
 }

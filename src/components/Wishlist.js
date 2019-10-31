@@ -11,7 +11,7 @@ class Wishlist extends React.Component {
     }
 
     handleAddToCart = (product) => () => {
-        this.props.addToCart(product.id, product.name)
+        this.props.addToCart(product.id, product.name, product.price)
         console.log('add to cart from wishlist')
     }
     
