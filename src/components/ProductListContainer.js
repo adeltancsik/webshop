@@ -3,12 +3,9 @@ import ProductList from "./ProductList";
 import { connect } from "react-redux";
 import { getProducts, deleteProduct } from "../actions/productList";
 
-class ProductListContainer extends React.Component {
-  componentDidMount() {
-    this.props.getProducts();
-    // this.props.deleteProduct(1);
-  }
 
+class ProductListContainer extends React.Component {
+ 
   render() {
     return (
       <div>

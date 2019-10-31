@@ -8,16 +8,16 @@ class DetailPageContainer extends React.Component {
     const productId = this.props.products.find(product => {
       return product.id.toString() === this.props.match.params.id;
     });
-    console.log(productId.name);
-    return (
-      <div>
-        <DetailPage
-          name={productId.name}
-          id={productId.id}
-          addToCart={this.props.addToCart}
-        />
-      </div>
-    );
+
+    if (productId){
+      return (
+        <div>
+          <DetailPage name={productId.name} id={productId.id} addToCart={this.props.addToCart}/>
+        </div>
+      )
+    }else{
+      return <h1>Loading...</h1>
+    }
   }
 }
 const mapStateToProps = state => {
