@@ -10,6 +10,7 @@ import AdminContainer from "./components/AdminContainer";
 import DetailPageContainer from "./components/DetailPageContainer";
 import {getProducts} from './actions/productList';
 import {connect} from 'react-redux';
+import TopHeaderContainer from "./components/TopHeaderContainer";
 
 export default class App extends React.Component {
   
@@ -30,6 +31,7 @@ class Routes extends React.Component{
   render(){
     return (
         <div className="App">
+        <TopHeaderContainer />
           <Route exact path="/" component={ProductListContainer} />
           <Route path="/shopping-cart" component={ShoppingCartContainer} />
           <Route path="/wishlist" component={WishlistContainer} />
