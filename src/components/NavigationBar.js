@@ -2,6 +2,7 @@ import React from "react";
 import "./NavigationBar.css";
 import { Link } from "react-router-dom";
 import CategoryNavbar from "./CategoryNavbar";
+import Search from './Search';
 
 export default class NavigationBar extends React.Component {
   render() {
@@ -28,6 +29,9 @@ export default class NavigationBar extends React.Component {
             />
             </Link>
             <h3>{this.props.wishlist.length}</h3>
+            
+            <Search />
+
         </div>
         <div className="heading">
           <h1>Our Webshop</h1>
