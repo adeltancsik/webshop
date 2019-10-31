@@ -8,6 +8,7 @@ class WishlistBtn extends React.Component {
           return product.id.toString() === this.props.id.toString()
         })
         this.props.addToWishlist(selectedProduct);
+        event.target.disabled=true;
     }
     
     render(){
