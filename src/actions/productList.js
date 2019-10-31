@@ -52,7 +52,7 @@ export function productAdded(id, categoryId, name, imageUrl, inStock, price) {
   };
 }
 
-export function addProduct(id, categoryId, name, imageUrl, inStock, price) {
+export function addProduct(categoryId, name, imageUrl, inStock, price, id) {
   return function(dispatch) {
     fetch(`http://localhost:4000/products`, {
       method: "POST",
@@ -69,7 +69,8 @@ export function addProduct(id, categoryId, name, imageUrl, inStock, price) {
       })
     })
       .then(res => res.json())
-      .then(() => {
+      .then(resJson => {
+        console.log("resJson", resJson);
         dispatch(productAdded(id, categoryId, name, imageUrl, inStock, price));
       });
   };
