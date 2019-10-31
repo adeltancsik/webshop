@@ -10,9 +10,10 @@ class Wishlist extends React.Component {
         this.props.removeFromWishlist(product);
     }
 
-    handleAddToCart = (product) => () => {
+    handleAddToCart = (product) => (event) => {
         this.props.addToCart(product.id, product.name, product.price)
         console.log('add to cart from wishlist')
+        event.target.disabled=true;
     }
     
     render(){
