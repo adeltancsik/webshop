@@ -8,14 +8,15 @@ class ShoppingCartContainer extends React.Component {
     return (
       <div>
         Hey?
-        <ShoppingCart cart={this.props.cart} />
+        <ShoppingCart cart={this.props.cart} products={this.props.products} />
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    cart: state.shoppingcart
+    cart: state.shoppingcart,
+    products: state.productList
   };
 };
 
