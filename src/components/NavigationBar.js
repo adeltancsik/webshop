@@ -18,7 +18,15 @@ export default class NavigationBar extends React.Component {
             />
           </Link>
           <h3>{this.props.cart.length} </h3>
-          <Link to="/wishlist">Wishlist</Link>
+
+          <Link className='cart' to="/wishlist">
+          <img
+              alt='wishlist'
+              width={30}
+              src={"https://image.flaticon.com/icons/png/512/25/25451.png"}
+            />
+            </Link>
+            <h3>{this.props.wishlist.length}</h3>
         </div>
         <div className="heading">
           <h1>Our Webshop</h1>
