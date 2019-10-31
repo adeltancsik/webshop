@@ -9,14 +9,19 @@ class DetailPageContainer extends React.Component {
       return product.id.toString() === this.props.match.params.id;
     });
 
-    if (productId){
+    if (productId) {
       return (
         <div>
-          <DetailPage name={productId.name} id={productId.id} addToCart={this.props.addToCart}/>
+          <DetailPage
+            name={productId.name}
+            id={productId.id}
+            addToCart={this.props.addToCart}
+            source={productId.imageUrl}
+          />
         </div>
-      )
-    }else{
-      return <h1>Loading...</h1>
+      );
+    } else {
+      return <h1>Loading...</h1>;
     }
   }
 }

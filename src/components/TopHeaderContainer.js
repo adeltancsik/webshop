@@ -7,9 +7,7 @@ class TopHeaderContainer extends React.Component {
     return (
       <div>
         <header>
-          <NavigationBar />
-          <h1>Our Webshop</h1>
-          <h3>Cart items: {this.props.cart.length} </h3>
+          <NavigationBar cart={this.props.cart} />
         </header>
       </div>
     );
