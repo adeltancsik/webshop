@@ -13,3 +13,14 @@
   background-color: #ddd;
   color: black;
 }
+.heading {
+  padding: 6%;
+}
+.topnav h3 {
+  float: left;
+  margin: 1% 0;
+}
+a.cart {
+  margin: 0%;
+  padding: 0%;
+}

@@ -15,12 +15,24 @@ export default class ShoppingCart extends React.Component {
     return (
       <div>
         <h2>ShoppingCart</h2>
-        <h3>Cart items: {this.props.cart.length} </h3>
-        <h4>The cart contains:</h4>
+        <h4>
+          {this.props.cart.length === 0 ? "Empty cart" : "The cart contains:"}
+        </h4>
         <ul>
           {this.props.cart.map(item => {
-            console.log("the item id is:", item.id);
-            return <li key={item.id}>{item.name}</li>;
+            // console.log("the item id is:", item.id);
+            return (
+              <li key={item.id}>
+                {item.name}{" "}
+                <button
+                  onClick={() =>
+                    this.props.removeFromCart(item.id, item.name, item.price)
+                  }
+                >
+                  Remove from cart
+                </button>
+              </li>
+            );
           })}
         </ul>
       </div>

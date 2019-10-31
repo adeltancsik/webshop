@@ -1,25 +1,25 @@
 import React from "react";
 import WishlistBtn from "./WishlistBtn";
-import { Link } from 'react-router-dom';
 
 export default class DetailPage extends React.Component {
   render() {
     return (
       <div>
-        
-        DetailPage
-        {this.props.name}
-
-        
-        <WishlistBtn id={this.props.id} name={this.props.name}/>
-
+        <h2>DetailPage</h2>
+        <h4>{this.props.name}</h4>
+        <img src={this.props.source} alt={"product"} />
+        <WishlistBtn id={this.props.id} name={this.props.name} />
         <button
-          onClick={() => this.props.addToCart(this.props.id, this.props.name)}
+          onClick={() =>
+            this.props.addToCart(
+              this.props.id,
+              this.props.name,
+              this.props.price
+            )
+          }
         >
           Add to cart
         </button>
-        
-
       </div>
     );
   }

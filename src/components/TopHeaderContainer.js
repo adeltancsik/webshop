@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import NavigationBar from "./NavigationBar";
 
@@ -8,9 +7,7 @@ class TopHeaderContainer extends React.Component {
     return (
       <div>
         <header>
-          <NavigationBar />
-          <h1>Our Webshop</h1>
-          <h3>Cart items: {this.props.cart.length} </h3>
+          <NavigationBar cart={this.props.cart} />
         </header>
       </div>
     );
