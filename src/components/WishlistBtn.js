@@ -7,10 +7,6 @@ class WishlistBtn extends React.Component {
         let selectedProduct = this.props.products.find((product)=>{
           return product.id.toString() === this.props.id.toString()
         })
-
-        console.log('selectedProduct',selectedProduct);
-        console.log('this.props.products',this.props.products);
-        console.log('this.props',this.props);
         this.props.addToWishlist(selectedProduct);
     }
     
