@@ -5,7 +5,6 @@ export function addToCart(id, name, price) {
       id: id,
       name: name,
       price: price
-
     }
   };
 }

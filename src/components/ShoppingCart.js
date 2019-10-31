@@ -35,6 +35,19 @@ export default class ShoppingCart extends React.Component {
             );
           })}
         </ul>
+        <div className="TotalPriceCalculator">
+          <h4>
+            Total price of the cart:
+            {this.props.cart
+              .map(item => {
+                const eachPrice = item.price;
+                return parseInt(eachPrice);
+              })
+              .reduce((a, b) => {
+                return a + b;
+              }, 0)}
+          </h4>
+        </div>
       </div>
     );
   }
