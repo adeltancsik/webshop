@@ -5,6 +5,7 @@ export function addToCart(id, name, price) {
       id: id,
       name: name,
       price: price
+
     }
   };
 }
@@ -15,7 +16,7 @@ export function removeFromCart(id, name, price) {
     payload: {
       id: id,
       name: name,
-      price
+      price: price
     }
   };
 }
