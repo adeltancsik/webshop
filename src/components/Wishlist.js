@@ -1,11 +1,17 @@
 import React from 'react';
+import {removeFromWishlist} from '../actions/wishlist';
+import {addToCart} from '../actions/shoppingCart';
+import {connect} from 'react-redux';
 
-export default class Wishlist extends React.Component {
-    handleRemove = (event) => {
-        console.log('remove the item')
+class Wishlist extends React.Component {
+    
+    handleRemove = (product) => () => {
+         
+        this.props.removeFromWishlist(product);
     }
 
-    handleAddToCart = (event) => {
+    handleAddToCart = (product) => () => {
+        this.props.addToCart(product.id, product.name)
         console.log('add to cart from wishlist')
     }
     
@@ -17,11 +23,22 @@ export default class Wishlist extends React.Component {
                 <ul> {this.props.wishlist.map((product)=>{
                     return <li key={product.id}>
                             {product.name} 
-                            <button onClick={this.handleRemove}>Remove from wishlist</button>
-                            <button onClick={this.handleAddToCart}>Add to shopping cart</button>
+                            <button onClick={this.handleRemove(product)}>Remove from wishlist</button>
+                            <button onClick={this.handleAddToCart(product)}>Add to shopping cart</button>
                            </li>
                 })} </ul>
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+      wishlist: state.wishlistReducer
+    };
+  };
+
+export default connect(
+    mapStateToProps,
+    { removeFromWishlist, addToCart }
+  )(Wishlist);
