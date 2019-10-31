@@ -19,10 +19,13 @@ class Wishlist extends React.Component {
         return (
             <div>
                 <h1>Wish List</h1>
+
+                <h3>You have {this.props.wishlist.length} item(s) on the wishlist</h3>
+
                 {console.log('this.props',this.props.wishlist)}
                 <ul> {this.props.wishlist.map((product)=>{
                     return <li key={product.id}>
-                            {product.name} 
+                            {product.name}, price:{product.price} 
                             <button onClick={this.handleRemove(product)}>Remove from wishlist</button>
                             <button onClick={this.handleAddToCart(product)}>Add to shopping cart</button>
                            </li>
