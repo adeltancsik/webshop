@@ -18,21 +18,6 @@ export function getProducts() {
   };
 }
 
-export function getProductsByCategory(categoryId){
-  return function(dispatch, getState) {
-    fetch("http://localhost:4000/products")
-      .then(res => res.json())
-      .then(data => {
-        console.log('data',data);
-        data.filter(product => product.categoryId.toString() === categoryId)})
-      .then(filteredProducts => {console.log('filteredProducts',filteredProducts)})
-      /* .then(filteredProducts => {
-        dispatch(setProducts(filteredProducts));
-      }) */
-      
-  };
-}
-
 export function productDeletedSuccess(id) {
   return {
     type: "PRODUCT_DELETED_SUCCESS",
