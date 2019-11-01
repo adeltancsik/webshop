@@ -23,6 +23,7 @@ export default class Search extends React.Component{
     
     render(){
         if(this.state.toSearchResult === true){
+            this.setState({ toSearchResult: false})
             return (<div>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} type='text' value={this.state.keyword}/>
