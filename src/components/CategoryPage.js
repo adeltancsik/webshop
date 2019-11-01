@@ -1,52 +1,40 @@
-import React from 'react';
-import {getProducts} from '../actions/productList';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import CategoryNavbar from './CategoryNavbar';
+import React from "react";
+import { getProducts } from "../actions/productList";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import CategoryNavbar from "./CategoryNavbar";
 import TopHeaderContainer from "./TopHeaderContainer";
-
 
 class CategoryPage extends React.Component {
   render() {
+    // const categoryProducts = this.props.products.filter(product => {
+    //   return product.categoryId.toString() === this.props.match.params.id;
+    // });
+
     const categoryProducts = this.props.products.filter(product => {
       return product.categoryId.toString() === this.props.match.params.id;
     });
 
-
-
-    render(){
-        
-        const categoryProducts = this.props.products.filter((product)=>{
-            return product.categoryId.toString() === this.props.match.params.id
-        })
-
-        return(
-            <div>
-                <div>
-<TopHeaderContainer />
-                  <CategoryNavbar />
-                </div>
-                <h1>Products under Category {this.props.match.params.id}</h1>
-                {categoryProducts.map((product)=>{
-                    return (
-                        <li key={product.id}>
-                          <Link to={`/detail-page/${product.id}`}>
-                            <p>{product.name}</p>
-                            <img
-                              src={product.imageUrl}
-                              alt={product.name}
-                              width="60px"
-                            />
-                          </Link>
-                        </li>
-                      )
-                })}
-            
-            </div>
-
-        )
-    }
-
+    return (
+      <div>
+        <div>
+          <TopHeaderContainer />
+          <CategoryNavbar />
+        </div>
+        <h1>Products under Category {this.props.match.params.id}</h1>
+        {categoryProducts.map(product => {
+          return (
+            <li key={product.id}>
+              <Link to={`/detail-page/${product.id}`}>
+                <p>{product.name}</p>
+                <img src={product.imageUrl} alt={product.name} width="60px" />
+              </Link>
+            </li>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
