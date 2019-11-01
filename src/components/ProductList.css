@@ -1,0 +1,16 @@
+.productlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-content: space-around;
+}
+.productlist img:hover {
+  transform: scale(1.5);
+}
+
+.productlist img {
+  border-radius: 30px;
+  overflow: hidden;
+  transition: 0.3s;
+}
