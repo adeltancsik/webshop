@@ -3,8 +3,15 @@ import {getProducts} from '../actions/productList';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import CategoryNavbar from './CategoryNavbar';
+import TopHeaderContainer from "./TopHeaderContainer";
 
-class CategoryPage extends React.Component{
+
+class CategoryPage extends React.Component {
+  render() {
+    const categoryProducts = this.props.products.filter(product => {
+      return product.categoryId.toString() === this.props.match.params.id;
+    });
+
 
 
     render(){
@@ -16,6 +23,7 @@ class CategoryPage extends React.Component{
         return(
             <div>
                 <div>
+<TopHeaderContainer />
                   <CategoryNavbar />
                 </div>
                 <h1>Products under Category {this.props.match.params.id}</h1>
@@ -38,15 +46,16 @@ class CategoryPage extends React.Component{
 
         )
     }
+
 }
 
 const mapStateToProps = state => {
-    return {
-      products: state.productList
-    };
+  return {
+    products: state.productList
   };
-  
-  export default connect(
-    mapStateToProps,
-    { getProducts }
-  )(CategoryPage);
+};
+
+export default connect(
+  mapStateToProps,
+  { getProducts }
+)(CategoryPage);
