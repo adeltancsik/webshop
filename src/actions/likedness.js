@@ -6,3 +6,8 @@ export function addLike(id) {
     }
   };
 }
+export function sortByPopularity() {
+  return {
+    type: "SORT_POPULAR"
+  };
+}

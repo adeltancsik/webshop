@@ -1,16 +1,18 @@
 .productlist {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  align-content: space-around;
+  justify-content: center;
+  align-content: center;
 }
 .productlist img:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .productlist img {
   border-radius: 30px;
   overflow: hidden;
   transition: 0.3s;
+  object-fit: cover;
+  width: 300px;
+  height: 337px;
 }
