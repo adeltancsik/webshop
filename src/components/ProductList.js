@@ -16,13 +16,14 @@ export default function ProductList(props) {
                   <img src={product.imageUrl} alt={product.name} width="35%" />
                 </Link>
                 <p>{product.price} €</p>
-                {/* <button onClick={() => props.incrementLike(product.id)}>
-                  👍
-                </button> */}
+                <button onClick={() => props.incrementLike(product.id)}>
+                  👍 {product.like}
+                </button>
               </div>
             );
           })}
-          {console.log(
+          {/* sorting: */}
+          {/* {console.log(
             props.products
               .map(product => {
                 return parseInt(product.price);
@@ -30,7 +31,14 @@ export default function ProductList(props) {
               .sort((a, b) => {
                 return a - b;
               })
-          )}
+          )} */}
+          {/* {console.log(
+            props.products
+              .sort((a, b) => {
+                return a.price - b.price;
+              })
+              .map // display products
+          )} */}
         </div>
       </main>
     </div>
