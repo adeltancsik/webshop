@@ -6,8 +6,7 @@ import { getProducts, deleteProduct } from "../actions/productList";
 import { addLike, sortByPopularity } from "../actions/likedness";
 import TopHeaderContainer from "./TopHeaderContainer";
 import { Button } from "@material-ui/core";
-import CategoryNavbar from './CategoryNavbar';
-
+import CategoryNavbar from "./CategoryNavbar";
 
 class ProductListContainer extends React.Component {
   componentDidMount() {
@@ -30,7 +29,7 @@ class ProductListContainer extends React.Component {
         </Link>
 
         <TopHeaderContainer />
-      
+
         <div>
           <CategoryNavbar />
         </div>
