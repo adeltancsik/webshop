@@ -1,0 +1,9 @@
+.productLine {
+  display: flex;
+  justify-content: space-around;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
