@@ -29,7 +29,7 @@ export default class Admin extends React.Component {
                       Delete
                     </button>
 
-                    <Link to={`/detail-page-admin/${product.id}`}>
+                    <Link to={`/admin-edit/${product.id}`}>
                       <button>Edit</button>
                     </Link>
                   </li>

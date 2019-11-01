@@ -6,6 +6,7 @@ import store from "./store";
 import ProductListContainer from "./components/ProductListContainer";
 import ShoppingCartContainer from "./components/ShoppingCartContainer";
 import AdminContainer from "./components/AdminContainer";
+import EditContainer from "./components/EditContainer";
 import DetailPageContainer from "./components/DetailPageContainer";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/" component={ProductListContainer} />
         <Route path="/shopping-cart" component={ShoppingCartContainer} />
         <Route path="/admin" component={AdminContainer} />
+        <Route path="/admin-edit/:id" component={EditContainer} />
         <Route path="/detail-page/:id" component={DetailPageContainer} />
       </div>
     </Provider>

@@ -5,7 +5,8 @@ export default (state = [], action = {}) => {
     case "PRODUCT_DELETED_SUCCESS":
       return state.filter(product => product.id !== action.payload);
     case "PRODUCT_ADDED":
-      console.log("{ ...action.payload }", { ...action.payload });
+      return [...state, { ...action.payload }];
+    case "PRODUCT_CHANGED":
       return [...state, { ...action.payload }];
     default:
       return state;
