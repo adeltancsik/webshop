@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import CategoryNavbar from "./CategoryNavbar";
 import Search from "./Search";
 
+
 export default class NavigationBar extends React.Component {
   render() {
     return (
@@ -35,9 +36,7 @@ export default class NavigationBar extends React.Component {
         <div className="heading">
           <h1>Our Webshop</h1>
         </div>
-        <div>
-          <CategoryNavbar />
-        </div>
+        
       </div>
     );
   }

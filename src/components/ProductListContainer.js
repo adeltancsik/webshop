@@ -7,6 +7,9 @@ import { addLike } from "../actions/likedness";
 import TopHeaderContainer from "./TopHeaderContainer";
 import { Button } from "@material-ui/core";
 
+import CategoryNavbar from './CategoryNavbar';
+
+
 class ProductListContainer extends React.Component {
   componentDidMount() {
     this.props.getProducts();
@@ -22,7 +25,14 @@ class ProductListContainer extends React.Component {
         <Link to={`/admin`}>
           <Button>Admin</Button>
         </Link>
+
         <TopHeaderContainer />
+
+
+        
+        <div>
+          <CategoryNavbar />
+        </div>
 
         <ProductList
           products={this.props.products}

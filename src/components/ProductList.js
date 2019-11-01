@@ -7,6 +7,7 @@ export default function ProductList(props) {
     <div>
       <main>
         <h2>ProductList</h2>
+        
         <div className="productlist">
           {props.products.map(product => {
             return (
