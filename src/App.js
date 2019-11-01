@@ -11,6 +11,7 @@ import DetailPageContainer from "./components/DetailPageContainer";
 import {getProducts} from './actions/productList';
 import {connect} from 'react-redux';
 import TopHeaderContainer from "./components/TopHeaderContainer";
+import CategoryPage from "./components/CategoryPage";
 
 export default class App extends React.Component {
   
@@ -37,6 +38,7 @@ class Routes extends React.Component{
           <Route path="/wishlist" component={WishlistContainer} />
           <Route path="/admin" component={AdminContainer} />
           <Route path="/detail-page/:id" component={DetailPageContainer} />
+          <Route path="/category/:id" component={CategoryPage} />
         </div>
     );
   }
