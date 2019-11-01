@@ -20,6 +20,7 @@ class AdminContainer extends React.Component {
             Homepage
           </Link>
         </div>
+        <br />
 
         <h1>Admin page</h1>
 
