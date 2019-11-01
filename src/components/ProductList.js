@@ -1,15 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
+import SortByPrice from './SortByPrice';
 
-export default function ProductList(props) {
+export default class ProductList extends React.Component {
+  state = {
+    sorting: false
+  }
+  
+  sorting = (newarray) => {
+     this.props.product = newarray;
+     this.setState({
+       sorting: true
+     })
+  }
+
+  render(){
   return (
     <div>
       <main>
         <h2>ProductList</h2>
-        
+        <SortByPrice products={this.props.products}/>
+
         <div className="productlist">
-          {props.products.map(product => {
+          {this.props.products.map(product => {
             return (
               <div className="item" key={product.id}>
                 <Link to={`/detail-page/${product.id}`}>
@@ -17,31 +31,15 @@ export default function ProductList(props) {
                   <img src={product.imageUrl} alt={product.name} width="35%" />
                 </Link>
                 <p>{product.price} €</p>
-                <button onClick={() => props.incrementLike(product.id)}>
+                <button onClick={() => this.props.incrementLike(product.id)}>
                   👍 {product.like}
                 </button>
               </div>
             );
           })}
-          {/* sorting: */}
-          {/* {console.log(
-            props.products
-              .map(product => {
-                return parseInt(product.price);
-              })
-              .sort((a, b) => {
-                return a - b;
-              })
-          )} */}
-          {/* {console.log(
-            props.products
-              .sort((a, b) => {
-                return a.price - b.price;
-              })
-              .map // display products
-          )} */}
         </div>
       </main>
     </div>
   );
+}
 }
