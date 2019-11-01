@@ -1,6 +1,7 @@
 import React from "react";
 import { getProducts, changeProduct } from "../actions/productList";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class EditContainer extends React.Component {
   state = {};
@@ -93,6 +94,10 @@ class EditContainer extends React.Component {
           <br />
           <button type="submit">Save changes</button>
         </form>
+        <br />
+        <Link to={`/admin`}>
+          <button>Go back to Admin</button>
+        </Link>
       </div>
     );
   }
