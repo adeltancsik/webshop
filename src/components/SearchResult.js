@@ -7,7 +7,7 @@ class SearchResult extends React.Component{
     render(){
 
         const searchResults = this.props.products.filter((product)=>{
-            return product.name === this.props.match.params.keyword
+            return product.name.includes(this.props.match.params.keyword)
         })
 
         return(
