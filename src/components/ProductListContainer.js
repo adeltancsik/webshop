@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProducts, deleteProduct } from "../actions/productList";
 import { addLike } from "../actions/likedness";
+import CategoryNavbar from './CategoryNavbar';
 
 class ProductListContainer extends React.Component {
   componentDidMount() {
@@ -20,7 +21,10 @@ class ProductListContainer extends React.Component {
         <Link to={`/admin`}>
           <button>Admin</button>
         </Link>
-
+        
+        <div>
+          <CategoryNavbar />
+        </div>
         <ProductList
           products={this.props.products}
           incrementLike={this.incrementLike}
