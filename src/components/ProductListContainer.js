@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProducts, deleteProduct } from "../actions/productList";
-import { addLike } from "../actions/likedness";
+import { addLike, sortByPopularity } from "../actions/likedness";
 
 class ProductListContainer extends React.Component {
   componentDidMount() {
@@ -12,6 +12,10 @@ class ProductListContainer extends React.Component {
 
   incrementLike = productId => {
     this.props.addLike(productId);
+  };
+
+  popular = () => {
+    this.props.sortByPopularity();
   };
 
   render() {
@@ -24,7 +28,8 @@ class ProductListContainer extends React.Component {
         <ProductList
           products={this.props.products}
           incrementLike={this.incrementLike}
-          likedness={this.props.likedness}
+          popular={this.popular}
+          popularity={this.props.popularity}
         />
       </div>
     );
@@ -33,11 +38,12 @@ class ProductListContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    products: state.productList
+    products: state.productList,
+    popularity: state.popularity
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getProducts, deleteProduct, addLike }
+  { getProducts, deleteProduct, addLike, sortByPopularity }
 )(ProductListContainer);
