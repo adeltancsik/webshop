@@ -2,6 +2,7 @@ import React from "react";
 import DetailPage from "./DetailPage";
 import { connect } from "react-redux";
 import { addToCart } from "../actions/shoppingCart";
+import TopHeaderContainer from "./TopHeaderContainer";
 
 class DetailPageContainer extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class DetailPageContainer extends React.Component {
     if (productId) {
       return (
         <div>
+          <TopHeaderContainer />
           <DetailPage
             name={productId.name}
             id={productId.id}

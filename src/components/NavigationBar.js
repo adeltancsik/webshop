@@ -2,7 +2,8 @@ import React from "react";
 import "./NavigationBar.css";
 import { Link } from "react-router-dom";
 import CategoryNavbar from "./CategoryNavbar";
-import Search from './Search';
+import Search from "./Search";
+
 
 export default class NavigationBar extends React.Component {
   render() {
@@ -21,25 +22,22 @@ export default class NavigationBar extends React.Component {
           </Link>
           <h3>{this.props.cart.length} </h3>
 
-          <Link className='cart' to="/wishlist">
-          <img
-              alt='wishlist'
+          <Link className="cart" to="/wishlist">
+            <img
+              alt="wishlist"
               width={30}
               src={"https://image.flaticon.com/icons/png/512/25/25451.png"}
             />
-            </Link>
-            <h3>{this.props.wishlist.length}</h3>
-            
-            <Search />
+          </Link>
+          <h3>{this.props.wishlist.length}</h3>
 
+          <Search />
         </div>
         <div className="heading">
           <h1>Our Webshop</h1>
         </div>
-        <div>
-          <CategoryNavbar />
-        </div>
+        
       </div>
-    )
+    );
   }
 }

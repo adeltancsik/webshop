@@ -11,9 +11,14 @@ class Wishlist extends React.Component {
     }
 
     handleAddToCart = (product) => (event) => {
+        if(this.props.cart.find(x=>x.id===product.id)){
+            window.alert('This item has already in your cart!')
+        }else{
+            
         this.props.addToCart(product.id, product.name, product.price)
         console.log('add to cart from wishlist')
         event.target.disabled=true;
+    }
     }
     
     render(){
@@ -38,7 +43,8 @@ class Wishlist extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      wishlist: state.wishlistReducer
+      wishlist: state.wishlistReducer,
+      cart: state.shoppingcart
     };
   };
 

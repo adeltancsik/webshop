@@ -1,5 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 
 export default class Admin extends React.Component {
   render() {
@@ -8,34 +13,50 @@ export default class Admin extends React.Component {
         <main>
           <h3>You have now in ProductList</h3>
           <div>
-            <ul>
+            <List>
               {this.props.products.map(product => {
                 return (
-                  <li className="productLine" key={product.id}>
-                    <img
-                      src={product.imageUrl}
-                      alt={product.name}
-                      width="30px"
-                    />
+                  <ListItem button className="productLine" key={product.id}>
+                    <ListItemText>
+                      <img
+                        src={product.imageUrl}
+                        alt={product.name}
+                        width="30px"
+                      />
+                    </ListItemText>
 
-                    <p>{product.name}</p>
-                    <p>{product.categoryId}</p>
-                    <p>{product.imageUrl}</p>
-                    <p>{product.false}</p>
-                    <p>{product.price}</p>
-                    <button
+                    <ListItemText>{product.name}</ListItemText>
+                    <ListItemText>{product.categoryId}</ListItemText>
+                    <ListItemText>{product.imageUrl}</ListItemText>
+                    <ListItemText>{product.false}</ListItemText>
+                    <ListItemText>{product.price}</ListItemText>
+                    <ListItemText>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        onClick={() => this.props.deleteProduct(product.id)}
+                      >
+                        <DeleteIcon />
+                        Delete
+                      </Button>
+                    </ListItemText>
+
+                    {/* <button
                       onClick={() => this.props.deleteProduct(product.id)}
                     >
                       Delete
-                    </button>
+                    </button> */}
 
                     <Link to={`/admin-edit/${product.id}`}>
-                      <button>Edit</button>
+                      <Button variant="contained" color="primary">
+                        Edit
+                      </Button>
                     </Link>
-                  </li>
+                  </ListItem>
                 );
               })}
-            </ul>
+            </List>
           </div>
         </main>
       </div>
