@@ -11,7 +11,7 @@ export default function ProductList(props) {
           <h2>ProductList</h2>
           <div>
             <button onClick={() => props.popular()}>
-              Filter based on popularity
+              Sort based on popularity
             </button>
           </div>
           <div className="productlist">
