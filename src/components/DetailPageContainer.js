@@ -15,6 +15,7 @@ class DetailPageContainer extends React.Component {
           <DetailPage
             name={productId.name}
             id={productId.id}
+            price={productId.price}
             addToCart={this.props.addToCart}
             source={productId.imageUrl}
           />

@@ -12,6 +12,8 @@ import DetailPageContainer from "./components/DetailPageContainer";
 import { getProducts } from "./actions/productList";
 import { connect } from "react-redux";
 import TopHeaderContainer from "./components/TopHeaderContainer";
+import CategoryPage from "./components/CategoryPage";
+import SearchResult from './components/SearchResult';
 
 export default class App extends React.Component {
   render() {
@@ -36,10 +38,12 @@ class Routes extends React.Component {
         <Route path="/shopping-cart" component={ShoppingCartContainer} />
         <Route path="/wishlist" component={WishlistContainer} />
         <Route path="/admin" component={AdminContainer} />
-        <Route path="/admin" component={AdminContainer} />
         <Route path="/admin-edit/:id" component={EditContainer} />
         <Route path="/detail-page/:id" component={DetailPageContainer} />
-      </div>
+          <Route path="/category/:id" component={CategoryPage} />
+          <Route path="/keyword/:keyword" component={SearchResult} />
+        </div>
+
     );
   }
 }
