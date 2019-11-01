@@ -3,19 +3,18 @@ import {getProducts} from '../actions/productList';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-class CategoryPage extends React.Component{
-
-
+class SearchResult extends React.Component{
     render(){
-        
-        const categoryProducts = this.props.products.filter((product)=>{
-            return product.categoryId.toString() === this.props.match.params.id
+
+        const searchResults = this.props.products.filter((product)=>{
+            return product.name.includes(this.props.match.params.keyword)
         })
 
         return(
             <div>
-                <h1>Products under Category {this.props.match.params.id}</h1>
-                {categoryProducts.map((product)=>{
+                <h1>Your search result:</h1>
+
+                {searchResults.map((product)=>{
                     return (
                         <li key={product.id}>
                           <Link to={`/detail-page/${product.id}`}>
@@ -29,9 +28,7 @@ class CategoryPage extends React.Component{
                         </li>
                       )
                 })}
-            
             </div>
-
         )
     }
 }
@@ -45,4 +42,4 @@ const mapStateToProps = state => {
   export default connect(
     mapStateToProps,
     { getProducts }
-  )(CategoryPage);
+  )(SearchResult);

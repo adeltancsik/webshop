@@ -6,6 +6,8 @@ export default (state = [], action = {}) => {
       return state.filter(product => product.id !== action.payload);
     case "PRODUCT_ADDED":
       return [...state, { ...action.payload }];
+    case "PRODUCT_CHANGED":
+      return [...state, { ...action.payload }];
     case "ADD_LIKE":
       const newState = state.map(product => {
         if (action.payload.id === product.id) {

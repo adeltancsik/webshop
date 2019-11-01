@@ -8,28 +8,12 @@ export function setProducts(products) {
 }
 
 export function getProducts() {
-  return function(dispatch, getState) {
-    // if (getState().products.length !== 0) return;
+  return function(dispatch) {
     fetch("http://localhost:4000/products")
       .then(res => res.json())
       .then(data => {
         dispatch(setProducts(data));
       });
-  };
-}
-
-export function getProductsByCategory(categoryId){
-  return function(dispatch, getState) {
-    fetch("http://localhost:4000/products")
-      .then(res => res.json())
-      .then(data => {
-        console.log('data',data);
-        data.filter(product => product.categoryId.toString() === categoryId)})
-      .then(filteredProducts => {console.log('filteredProducts',filteredProducts)})
-      /* .then(filteredProducts => {
-        dispatch(setProducts(filteredProducts));
-      }) */
-      
   };
 }
 
@@ -94,6 +78,47 @@ export function addProduct(categoryId, name, imageUrl, inStock, price, id) {
       .then(resJson => {
         console.log("resJson", resJson);
         dispatch(productAdded(id, categoryId, name, imageUrl, inStock, price));
+      });
+  };
+}
+
+export function productChanged(id, categoryId, name, imageUrl, inStock, price) {
+  return {
+    type: "PRODUCT_CHANGED",
+    payload: id,
+    categoryId,
+    name,
+    imageUrl,
+    inStock,
+    price
+  };
+}
+
+export function changeProduct(categoryId, name, imageUrl, inStock, price, id) {
+  return function(dispatch) {
+    fetch(`http://localhost:4000/products`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        categoryId: categoryId,
+        name: name,
+        imageUrl: imageUrl,
+        inStock: inStock,
+        price: price
+      })
+    })
+      .then(res => {
+        console.log("res", res);
+        return res.json();
+      })
+      .then(resJson => {
+        console.log("resJson", resJson);
+        dispatch(
+          productChanged(id, categoryId, name, imageUrl, inStock, price)
+        );
       });
   };
 }
