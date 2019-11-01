@@ -11,16 +11,7 @@ class ProductListContainer extends React.Component {
   }
 
   incrementLike = productId => {
-    console.log("this is the product id: ", productId);
-    console.log("likedness is: ", this.props.likedness);
     this.props.addLike(productId);
-    console.log("likedness length is: ", this.props.likedness.length + 1);
-    this.setLike(productId);
-  };
-  setLike = productId => {
-    if (this.props.likedness.includes(productId)) {
-      console.log("includes this product id: ", productId);
-    }
   };
 
   render() {
@@ -42,8 +33,7 @@ class ProductListContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    products: state.productList,
-    likedness: state.likedness
+    products: state.productList
   };
 };
 

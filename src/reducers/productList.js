@@ -8,6 +8,15 @@ export default (state = [], action = {}) => {
       return [...state, { ...action.payload }];
     case "PRODUCT_CHANGED":
       return [...state, { ...action.payload }];
+    case "ADD_LIKE":
+      const newState = state.map(product => {
+        if (action.payload.id === product.id) {
+          product.like++;
+        }
+        return product;
+      });
+      state = newState;
+      return [...newState];
     default:
       return state;
   }
