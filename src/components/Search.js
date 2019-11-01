@@ -1,38 +1,46 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {getProducts} from '../actions/productList';
-import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
-
-let keyword = '';
-
-class Search extends React.Component{
-    
+export default class Search extends React.Component{
+   state = {
+       toSearchResult: false,
+       keyword: ''
+   } 
     
     handleChange = (event) => {
         console.log(event.target.value);
-        keyword = event.target.value;
+        this.setState({
+            keyword: event.target.value
+        })
     }
 
     handleSubmit = (event) =>{
         event.preventDefault();
-        console.log('keyword:',keyword);
+        this.setState({
+            toSearchResult: true,
+        })
     }
     
     render(){
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input onChange={this.handleChange} type='text' />
-                <input type='submit' value='Search' />
-            </form>
-        )
+        if(this.state.toSearchResult === true){
+            return (<div>
+                <form onSubmit={this.handleSubmit}>
+                    <input onChange={this.handleChange} type='text' value={this.state.keyword}/>
+                    {/* <input type='submit' value='Search' /> */}
+                    <input type="image" width={30} src="https://cdn4.iconfinder.com/data/icons/political-elections/50/29-512.png" alt="Submit Form" />
+                </form>
+                <Redirect to={`/keyword/${this.state.keyword}`} />
+            </div>)
+             
+        }else{
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    <input onChange={this.handleChange} type='text' value={this.state.keyword}/>
+                    {/* <input type='submit' value='Search' /> */}
+                    <input type="image" width={30} src="https://cdn4.iconfinder.com/data/icons/political-elections/50/29-512.png" alt="Submit Form" />
+                </form>
+            )
+        }
+        
     }
 }
-
-const mapStateToProps = state => {
-    return {
-      products: state.productList
-    };
-  };
-  
-export default connect(mapStateToProps,{ getProducts })(Search);
