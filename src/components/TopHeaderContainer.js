@@ -7,7 +7,10 @@ class TopHeaderContainer extends React.Component {
     return (
       <div>
         <header>
-          <NavigationBar cart={this.props.cart} wishlist={this.props.wishlist} />
+          <NavigationBar
+            cart={this.props.cart}
+            wishlist={this.props.wishlist}
+          />
         </header>
       </div>
     );
