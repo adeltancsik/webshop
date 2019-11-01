@@ -16,6 +16,9 @@ export default class ProductList extends React.Component {
   }
 
   render(){
+    if(this.state.sorting === ture){
+      // runder the sorted array
+    }
   return (
     <div>
       <main>
