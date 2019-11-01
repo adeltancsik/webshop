@@ -36,9 +36,7 @@ export default class NavigationBar extends React.Component {
         <div className="heading">
           <h1>Our Webshop</h1>
         </div>
-        <div>
-          <CategoryNavbar />
-        </div>
+        
       </div>
     )
   }
