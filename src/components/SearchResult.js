@@ -12,7 +12,7 @@ class SearchResult extends React.Component{
 
         return(
             <div>
-                <h1>Your search result:</h1>
+                <h1>Your search results:</h1>
 
                 {searchResults.map((product)=>{
                     return (

@@ -1,7 +1,6 @@
 import React from "react";
 import "./NavigationBar.css";
 import { Link } from "react-router-dom";
-import CategoryNavbar from "./CategoryNavbar";
 import Search from './Search';
 
 export default class NavigationBar extends React.Component {
